@@ -3,7 +3,7 @@ is
 
 A validation helper
 
-## useage
+## usage
 ```
 is.Email("xxx@xxx.com")
 is.Url("google.com")
