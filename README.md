@@ -1,0 +1,4 @@
+is
+==
+
+A validation helper
