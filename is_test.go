@@ -1,8 +1,6 @@
 package is
 
-import (
-	"testing"
-)
+import "testing"
 
 func TestIsEmail(t *testing.T) {
 	if !Email("xxx@xxx.com") {
@@ -20,23 +18,31 @@ func TestIsUrl(t *testing.T) {
 	}
 
 	if !Url("www.google.com/test/test.jpg") {
-		t.Error("google.com - it should be a url")
+		t.Error("www.google.com/test/test.jpg - it should be a url")
 	}
 
 	if !Url("www.google.com/test/test.jpg?v=123&v2=321") {
-		t.Error("google.com - it should be a url")
+		t.Error("www.google.com/test/test.jpg?v=123&v2=321 - it should be a url")
 	}
 
 	if !Url("http://www.google.com/test/test.jpg?v=123&v2=321") {
-		t.Error("google.com - it should be a url")
+		t.Error("http://www.google.com/test/test.jpg?v=123&v2=321 - it should be a url")
 	}
 
 	if !Url("http://www.google.com:8080/test/test.jpg?v=123&v2=321") {
-		t.Error("google.com - it should be a url")
+		t.Error("http://www.google.com:8080/test/test.jpg?v=123&v2=321 - it should be a url")
 	}
 
 	if !Url("http://www.google.com:8080") {
-		t.Error("google.com - it should be a url")
+		t.Error("http://www.google.com:8080 - it should be a url")
+	}
+
+	if !Url("http://127.0.0.1/img/logo.jpg") {
+		t.Error("http://127.0.0.1/img/logo.jpg - it should be a url")
+	}
+
+	if !Url("http://127.0.0.1:8888/img/logo.jpg") {
+		t.Error("http://127.0.0.1:8888/img/logo.jpg - it should be a url")
 	}
 
 	if Url("2014/newimages/icon_15.jpg") {
