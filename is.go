@@ -23,7 +23,7 @@ func Url(v string) bool {
 	return ok && err == nil
 }
 
-// borrow from "labix.org/v2/mgo/bson"
+// borrow from "gopkg.in/mgo.v2/bson"
 func Zero(v reflect.Value) bool {
 	switch v.Kind() {
 	case reflect.String:
