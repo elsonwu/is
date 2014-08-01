@@ -12,6 +12,24 @@ func TestIsEmail(t *testing.T) {
 	}
 }
 
+func TestIsNumString(t *testing.T) {
+	if !NumString("1234") {
+		t.Error("1234 - it should be a num string")
+	}
+
+	if NumString("@1234") {
+		t.Error("1234 - it should not be a num string")
+	}
+
+	if NumString("1@234") {
+		t.Error("1234 - it should not be a num string")
+	}
+
+	if NumString("1234@") {
+		t.Error("1234 - it should not be a num string")
+	}
+}
+
 func TestIsUrl(t *testing.T) {
 	if !Url("google.com") {
 		t.Error("google.com - it should be a url")

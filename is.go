@@ -3,6 +3,7 @@ package is
 import (
 	"reflect"
 	"regexp"
+	"strconv"
 	"time"
 )
 
@@ -21,6 +22,22 @@ func Email(v string) bool {
 func Url(v string) bool {
 	ok, err := regexp.MatchString(UrlPattern, v)
 	return ok && err == nil
+}
+
+func NumString(str string) bool {
+	if str == "" {
+		return false
+	}
+
+	strs := []byte(str)
+	for _, v := range strs {
+		_, err := strconv.Atoi(string(v))
+		if err != nil {
+			return false
+		}
+	}
+
+	return true
 }
 
 // borrow from "gopkg.in/mgo.v2/bson"
